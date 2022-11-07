@@ -2,7 +2,15 @@
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# Publish test results v1
+# Publish test results to Azure Pipelines.
 
+    #mergeTestResults: false # boolean. Merge Test Results. Default: false.
+    #testRunTitle: # string. Test Run Title. 
+  # Advanced
+    #platform: # string. Platform. 
+    #configuration: # string. Configuration. 
+    #publishRunAttachments: true # boolean. Upload Test Attachments. Default: true.
 trigger:
 - master
 
@@ -10,6 +18,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: PublishTestResults@1
+  inputs:
+    testRunner: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit'. Required. Test Result Format. Default: JUnit.
+    testResultsFiles: '**/TEST-*.xml' # string. Required. Test Results Files. Default: **/TEST-*.xml.
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
