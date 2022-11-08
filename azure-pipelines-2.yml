@@ -18,10 +18,10 @@ steps:
     jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testResultsFiles:  'TEST-REULTS.xml'
     goals: 'package'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testResultsFiles:  'TEST-REULTS.xml'
     searchFolder: '${basedir}/target/surefire-report'
