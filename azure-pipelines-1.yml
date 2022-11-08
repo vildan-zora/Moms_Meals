@@ -18,10 +18,10 @@ steps:
     jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/*.xml'
     goals: 'package'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/*.xml'
