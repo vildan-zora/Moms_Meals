@@ -24,3 +24,4 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    searchFolder: '${basedir}/target/surefire-report'
